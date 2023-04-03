@@ -5,7 +5,7 @@ AllowShortFunctionsOnASingleLine: Empty
 AllowShortIfStatementsOnASingleLine: Never
 AllowShortLoopsOnASingleLine: false
 BreakBeforeBraces: Attach
-ColumnLimit: 0
+# ColumnLimit: 0
 FixNamespaceComments: false
 TabWidth: 2
 IndentAccessModifiers: true
