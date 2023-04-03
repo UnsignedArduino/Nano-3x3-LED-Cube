@@ -22,6 +22,11 @@ void showBuffer(uint32_t duration) {
         }
       }
       delayMicroseconds(LED_TIME);
+      for (uint8_t zRow = 0; zRow < DEPTH; zRow++) {
+        for (uint8_t xRow = 0; xRow < WIDTH; xRow++) {
+          digitalWrite(XZ_PLANE_PINS[zRow * 3 + xRow], LOW);
+        }
+      }
       digitalWrite(Y_PLANE_PINS[yPlane], HIGH);
     }
   }
