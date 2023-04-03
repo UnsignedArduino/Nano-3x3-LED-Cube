@@ -18,7 +18,8 @@ void showBuffer(uint32_t duration) {
       digitalWrite(Y_PLANE_PINS[yPlane], LOW);
       for (uint8_t zRow = 0; zRow < DEPTH; zRow++) {
         for (uint8_t xRow = 0; xRow < WIDTH; xRow++) {
-          digitalWrite(XZ_PLANE_PINS[zRow * 3 + xRow], buffer[yPlane][zRow][xRow]);
+          digitalWrite(XZ_PLANE_PINS[zRow * 3 + xRow],
+                       buffer[yPlane][zRow][xRow]);
         }
       }
       delayMicroseconds(LED_TIME);
@@ -36,9 +37,7 @@ void setPixel(uint8_t x, uint8_t y, uint8_t z, bool value) {
   buffer[y][z][x] = value;
 }
 
-bool getPixel(uint8_t x, uint8_t y, uint8_t z) {
-  return buffer[y][z][x];
-}
+bool getPixel(uint8_t x, uint8_t y, uint8_t z) { return buffer[y][z][x]; }
 
 void setAll(bool value) {
   const uint16_t bufferSize = WIDTH * HEIGHT * DEPTH * sizeof(bool);
@@ -46,20 +45,20 @@ void setAll(bool value) {
 }
 
 void setup() {
-  for (uint8_t i = 0; i < WIDTH * DEPTH; i ++) {
+  for (uint8_t i = 0; i < WIDTH * DEPTH; i++) {
     pinMode(XZ_PLANE_PINS[i], OUTPUT);
     digitalWrite(XZ_PLANE_PINS[i], LOW);
   }
-  for (uint8_t i = 0; i < HEIGHT; i ++) {
+  for (uint8_t i = 0; i < HEIGHT; i++) {
     pinMode(Y_PLANE_PINS[i], OUTPUT);
     digitalWrite(Y_PLANE_PINS[i], HIGH);
   }
 }
 
 void loop() {
-  for (uint8_t y = 0; y < HEIGHT; y ++) {
-    for (uint8_t x = 0; x < WIDTH; x ++) {
-      for (uint8_t z = 0; z < DEPTH; z ++) {
+  for (uint8_t y = 0; y < HEIGHT; y++) {
+    for (uint8_t x = 0; x < WIDTH; x++) {
+      for (uint8_t z = 0; z < DEPTH; z++) {
         setPixel(x, y, z, HIGH);
         showBuffer(100);
         setAll(LOW);
