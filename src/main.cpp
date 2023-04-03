@@ -46,7 +46,6 @@ void setAll(bool value) {
 }
 
 void setup() {
-  Serial.begin(9600);
   for (uint8_t i = 0; i < WIDTH * DEPTH; i ++) {
     pinMode(XZ_PLANE_PINS[i], OUTPUT);
     digitalWrite(XZ_PLANE_PINS[i], LOW);
@@ -62,7 +61,7 @@ void loop() {
     for (uint8_t x = 0; x < WIDTH; x ++) {
       for (uint8_t z = 0; z < DEPTH; z ++) {
         setPixel(x, y, z, HIGH);
-        showBuffer(1000);
+        showBuffer(100);
         setAll(LOW);
       }
     }
