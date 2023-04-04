@@ -36,6 +36,38 @@ void animationPlaneShift(LEDCubeBase& cube, uint8_t iterations,
         }
         break;
       }
+      case (RIGHT): {
+        for (uint8_t x = 0; x < cube.getWidth(); x++) {
+          cube.fillCube(LOW);
+          cube.fillYZPlane(x, HIGH);
+          cube.updateFor(FRAME_TIME);
+        }
+        break;
+      }
+      case (LEFT): {
+        for (int8_t x = cube.getWidth() - 1; x >= 0; x--) {
+          cube.fillCube(LOW);
+          cube.fillYZPlane(x, HIGH);
+          cube.updateFor(FRAME_TIME);
+        }
+        break;
+      }
+      case (BACKWARD): {
+        for (uint8_t z = 0; z < cube.getDepth(); z++) {
+          cube.fillCube(LOW);
+          cube.fillXYPlane(z, HIGH);
+          cube.updateFor(FRAME_TIME);
+        }
+        break;
+      }
+      case (FORWARD): {
+        for (int8_t z = cube.getDepth() - 1; z >= 0; z--) {
+          cube.fillCube(LOW);
+          cube.fillXYPlane(z, HIGH);
+          cube.updateFor(FRAME_TIME);
+        }
+        break;
+      }
     }
   }
 }

@@ -35,7 +35,9 @@ class LEDCubeBase {
     ledCubePixelValue_t getPixel(ledCubeAxesLength_t x, ledCubeAxesLength_t y,
                                  ledCubeAxesLength_t z);
 
+    void fillYZPlane(ledCubeAxesLength_t x, ledCubePixelValue_t value);
     void fillXZPlane(ledCubeAxesLength_t y, ledCubePixelValue_t value);
+    void fillXYPlane(ledCubeAxesLength_t z, ledCubePixelValue_t value);
     void fillCube(ledCubePixelValue_t value);
 
     virtual void update() = 0;

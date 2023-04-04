@@ -22,10 +22,10 @@ void setup() {
 }
 
 void loop() {
-  // animationFillCube(cube, ANIMATION_ITERATIONS);
-  // animationFrameBlank(cube, 1);
-  animationPlaneShift(cube, ANIMATION_ITERATIONS, UP);
+  animationFillCube(cube, ANIMATION_ITERATIONS);
   animationFrameBlank(cube, 1);
-  animationPlaneShift(cube, ANIMATION_ITERATIONS, DOWN);
-  animationFrameBlank(cube, 1);
+  for (uint8_t dir = UP; dir <= BACKWARD; dir++) {
+    animationPlaneShift(cube, ANIMATION_ITERATIONS, dir);
+    animationFrameBlank(cube, 1);
+  }
 }
