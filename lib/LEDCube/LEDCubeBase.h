@@ -7,7 +7,7 @@ typedef uint8_t ledCubeAxesLength_t;
 typedef bool ledCubePixelValue_t;
 typedef uint8_t ledCubePin_t;
 
-#ifndef LED_CUBE_TIME
+#ifndef LED_TIME
 #define LED_TIME 300 // us
 #endif
 
@@ -18,11 +18,24 @@ class LEDCubeBase {
     void begin();
     void end();
 
+    ledCubeAxesLength_t getWidth() {
+      return this->_width;
+    }
+
+    ledCubeAxesLength_t getHeight() {
+      return this->_height;
+    }
+
+    ledCubeAxesLength_t getDepth() {
+      return this->_depth;
+    }
+
     void setPixel(ledCubeAxesLength_t x, ledCubeAxesLength_t y,
                   ledCubeAxesLength_t z, ledCubePixelValue_t value);
     ledCubePixelValue_t getPixel(ledCubeAxesLength_t x, ledCubeAxesLength_t y,
                                  ledCubeAxesLength_t z);
 
+    void fillXZPlane(ledCubeAxesLength_t y, ledCubePixelValue_t value);
     void fillCube(ledCubePixelValue_t value);
 
     virtual void update() = 0;

@@ -27,6 +27,15 @@ ledCubePixelValue_t LEDCubeBase::getPixel(ledCubeAxesLength_t x,
   return *this->getPointerToPixel(x, y, z);
 }
 
+void LEDCubeBase::fillXZPlane(ledCubeAxesLength_t y,
+                              ledCubePixelValue_t value) {
+  for (uint8_t x = 0; x < this->_width; x++) {
+    for (uint8_t z = 0; z < this->_depth; z++) {
+      this->setPixel(x, y, z, HIGH);
+    }
+  }
+}
+
 void LEDCubeBase::fillCube(ledCubePixelValue_t value) {
   const uint16_t bufferSize =
       this->_width * this->_height * this->_depth * sizeof(ledCubePixelValue_t);
