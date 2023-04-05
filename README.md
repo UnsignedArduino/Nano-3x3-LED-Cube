@@ -29,4 +29,4 @@ void updateFor(uint32_t duration);
 
 ## Changing wiring
 
-The architecture of the [`LEDCube`](https://github.com/UnsignedArduino/Nano-3x3-LED-Cube/tree/main/lib/LEDCube) library makes it pretty easy to change how the frame buffer is actually displayed. Check out [`LEDCubeXZOutYIn`](https://github.com/UnsignedArduino/Nano-3x3-LED-Cube/tree/main/lib/LEDCube/IO/DirectIO/LEDCubeXZOutYIn) to see how I did it. 
+The architecture of the [`LEDCube`](https://github.com/UnsignedArduino/Nano-3x3-LED-Cube/tree/main/lib/LEDCube) library makes it pretty easy to change how the frame buffer is actually displayed. You'll need to create a new child class of `LEDCubeBase` and modify the `update` function to actually display what's in the frame buffer. Check out [`LEDCubeXZOutYIn`](https://github.com/UnsignedArduino/Nano-3x3-LED-Cube/tree/main/lib/LEDCube/IO/DirectIO/LEDCubeXZOutYIn) to see how I did it.
