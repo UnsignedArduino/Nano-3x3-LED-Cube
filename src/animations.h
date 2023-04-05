@@ -10,7 +10,9 @@
 
 #define FRAME_TIME 250
 
-void animationFrameBlank(LEDCubeBase& cube, uint8_t iterations);
-void animationFillCube(LEDCubeBase& cube, uint8_t iterations);
-void animationPlaneShift(LEDCubeBase& cube, uint8_t iterations,
-                         uint8_t direction);
+namespace LEDCubeAnimations {
+  void animationFrameBlank(LEDCubeBase& cube, uint8_t iterations);
+  void animationFillCube(LEDCubeBase& cube, uint8_t iterations);
+  void animationPlaneShift(LEDCubeBase& cube, uint8_t iterations,
+                           uint8_t direction);
+}

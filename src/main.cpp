@@ -9,7 +9,7 @@ const ledCubeAxesLength_t DEPTH = 3;
 const ledCubePin_t XZ_PLANE_PINS[WIDTH * DEPTH] = {2, 3, 4, 5, 6, 7, 8, 9, 10};
 const ledCubePin_t Y_PLANE_PINS[HEIGHT] = {A0, A1, A2};
 
-const uint8_t ANIMATION_ITERATIONS = 2;
+const uint8_t ANIMATION_ITERATIONS = 5;
 
 ledCubePixelValue_t buffer[HEIGHT][DEPTH][WIDTH] = {};
 
@@ -22,10 +22,10 @@ void setup() {
 }
 
 void loop() {
-  animationFillCube(cube, ANIMATION_ITERATIONS);
-  animationFrameBlank(cube, 1);
+  LEDCubeAnimations::animationFillCube(cube, ANIMATION_ITERATIONS);
+  LEDCubeAnimations::animationFrameBlank(cube, 1);
   for (uint8_t dir = UP; dir <= BACKWARD; dir++) {
-    animationPlaneShift(cube, ANIMATION_ITERATIONS, dir);
-    animationFrameBlank(cube, 1);
+    LEDCubeAnimations::animationPlaneShift(cube, ANIMATION_ITERATIONS, dir);
+    LEDCubeAnimations::animationFrameBlank(cube, 1);
   }
 }
